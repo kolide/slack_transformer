@@ -5,6 +5,8 @@ require 'slack_transformer/html/lists'
 require 'slack_transformer/html/paragraph'
 require 'slack_transformer/html/preformatted'
 require 'slack_transformer/html/strikethrough'
+require 'slack_transformer/html/links'
+
 
 module SlackTransformer
   class Html
@@ -17,7 +19,8 @@ module SlackTransformer
       SlackTransformer::Html::Code,
       SlackTransformer::Html::Paragraph,
       SlackTransformer::Html::Preformatted,
-      SlackTransformer::Html::Lists
+      SlackTransformer::Html::Lists,
+      SlackTransformer::Html::Links
     ]
 
     def initialize(input)

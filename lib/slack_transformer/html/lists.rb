@@ -16,13 +16,16 @@ module SlackTransformer
           case child.name
           when 'ul'
             list = child.children.map do |c|
+              next unless c.name == 'li'
               "• #{c.children.to_html}"
             end
 
             child.replace(list.join("\n"))
           when 'ol'
-            list = child.children.map.with_index do |c, i|
-              "#{i + 1}. #{c.children.to_html}"
+            counter = 0
+            list = child.children.map do |c|
+              next unless c.name == 'li'
+              "#{counter = counter + 1}. #{c.children.to_html}"
             end
 
             child.replace(list.join("\n"))

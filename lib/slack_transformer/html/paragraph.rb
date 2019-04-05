@@ -8,7 +8,7 @@ module SlackTransformer
       end
 
       def to_slack
-        input.gsub(/<\/?p>/, '\n\n')
+        input.gsub(/<\/?p>/, "")
       end
     end
   end
