@@ -1,6 +1,6 @@
 module SlackTransformer
   class Html
-    class Italics
+    class Paragraph
       attr_reader :input
 
       def initialize(input)
@@ -8,7 +8,7 @@ module SlackTransformer
       end
 
       def to_slack
-        input.gsub(/<\/?em>/, '_')
+        input.gsub(/<\/?p>/, '\n\n')
       end
     end
   end
